@@ -1,0 +1,32 @@
+#Script to deploy on the Render Cloud Platform
+
+name: Node.js CI
+
+on: 
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Invoke deployment hook
+      uses: distributhor/workflow-webhood@v2
+      env: 
+        webhook_url: ${{secrets.DEPLOY_HOOK_URL}}
+        webhook_secret: ${{seccrets.DEPLOY_HOOK__KEY}}
+    
+    - uses: bounceapp/render-action@0.6.0
+      with:
+        render-token: ${{secrets.RENDER_API_KEY}}
+        github-token: ${{secrets.ACC_API_KEY}} #This is the Github Token
+        service-id: "srv-cgilg2pr8t1g7lq3tq5g " #This id is unique for each app
+        retries: 20
+        wait: 16000
+        sleep: 30000
