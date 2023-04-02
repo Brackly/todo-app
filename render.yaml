@@ -1,0 +1,16 @@
+version: "1"
+
+build:
+  name: node
+  env: {}
+  on_success:
+    - name: "Render Deploy"
+      env: {}
+      config:
+        WEB_SERVICE_NAME: "web"
+        WEB_MEMORY: 512
+        WEB_AUTOMATIC_SCALING: false
+        WEB_ROUTES: |
+          /:
+            contentDir: public
+      type: "web"
