@@ -25,7 +25,7 @@ jobs:
     - uses: bounceapp/render-action@0.6.0
       with:
         render-token: ${{secrets.RENDER_API_KEY}}
-        github-token: ${{secrets.ACC_API_KEY}} #This is the Github Token
+        github-token: ${{ secrets.GITHUB_TOKEN }} #This is the Github Token
         service-id: "srv-cglufdpmbg56g40p7f40" #This id is unique for each app
         retries: 20
         wait: 16000
