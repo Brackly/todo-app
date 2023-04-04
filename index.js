@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3030;
 const bodyParser = require('body-parser');
 const urlEncodedParser = bodyParser.urlencoded({extended: false});
 const jsonParser = bodyParser.json();
@@ -20,13 +20,19 @@ app.get("/", (req, res) => {
 
 app.post("/addtask", urlEncodedParser, (req, res) => {
     var newTask = req.body.newtask;
-    const taskObject = {
-        ID: Date.now() + Math.random().toString(36).substr(2, 9),
-        Task: newTask,
-        Completed: false
-    };
-    data.push(taskObject);
-    fs.writeFileSync(fileName, JSON.stringify(data, null, 2));
+    console.log(newTask)
+    if(!newTask) return res.status(400).redirect('/')
+    try{
+        const taskObject = {
+            ID: Date.now() + Math.random().toString(36).substring(2, 9),
+            Task: newTask,
+            Completed: false
+        };
+        data.push(taskObject);
+        fs.writeFileSync(fileName, JSON.stringify(data, null, 2));
+    }catch(err){
+        console.log(err)
+    }
     res.redirect("/");
 });
 
