@@ -20,7 +20,7 @@ jobs:
       uses: distributhor/workflow-webhood@v2
       env: 
         webhook_url: ${{secrets.DEPLOY_HOOK_URL}}
-        webhook_secret: ${{seccrets.DEPLOY_HOOK__KEY}}
+        webhook_secret: ${{secrets.DEPLOY_HOOK__KEY}}
     
     - uses: bounceapp/render-action@0.6.0
       with:
