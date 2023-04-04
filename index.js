@@ -18,6 +18,10 @@ app.get("/", (req, res) => {
     res.render('index', {tasks: data});
 });
 
+app.get("/healthcheck", (req, res) => {
+    res.sendStatus(200);
+});
+
 app.post("/addtask", urlEncodedParser, (req, res) => {
     var newTask = req.body.newtask;
     console.log(newTask)
