@@ -27,6 +27,10 @@ app.get("/", (req, res) => {//This route handler responds to HTTP GET requests t
     res.render('index', {tasks: data});//template and passing it a 'tasks' variable  containing the to-do list data
 });
 
+app.get("/", (req, res) => {
+    res.render('index', {tasks: data});
+});
+
 
 //Add task Functionality
 // -> This route handler responds to HTTP POST  requests to the /add task URL by adding a new task
