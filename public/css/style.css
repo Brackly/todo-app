@@ -1,25 +1,58 @@
-/* * {
-    font-family: "lato", sans-serif;
-    font-weight: bold;
-}
-
-body {
-    background: rgb(245, 245, 245);
-    color: #333333;
-    margin-top: 20px;
-}
-
-.container {
-    display: block;
-    width: 400px;
-    margin: 0 auto;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-} */
-
-body{
-    background-color: rebeccapurple;
-}
+/* Select and style the jumbotron */
+.jumbotron {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Style the headings */
+  h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    text-align: center;
+    padding-bottom: 5%;
+  }
+  
+  h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    margin-top: 0;
+  }
+  
+  /* Style the form group */
+  .form-group {
+    margin-bottom: 2rem;
+  }
+  
+  /* Style the input and button */
+  input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+  }
+  
+  button {
+    margin-top: 0.5rem;
+  }
+  
+  /* Style the list group */
+  .list-group {
+    margin-bottom: 2rem;
+  }
+  
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Style the checkbox */
+  input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  /* Style the delete button */
+  button[name="deleteTask"] {
+    margin-left: 0.5rem;
+  }
+  
