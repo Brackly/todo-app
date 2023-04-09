@@ -23,8 +23,12 @@ jobs:
         webhook_secret: ${{secrets.DEPLOY_HOOK__KEY}}
     - name: Install dependencies
       run: npm install
+    - name: run server
+      run: node index.js
     - name: Run tests
-      run: npx mocha acceptance.spec.js
+      run: |
+        sleep 10
+        npx mocha acceptance.spec.js
     
 #  - uses: bounceapp/render-action@0.6.0
 #    with:
