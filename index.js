@@ -27,11 +27,6 @@ app.get("/", (req, res) => {//This route handler responds to HTTP GET requests t
     res.render('index', {tasks: data});//template and passing it a 'tasks' variable  containing the to-do list data
 });
 
-app.get("/", (req, res) => {
-    res.render('index', {tasks: data});
-});
-
-
 //Add task Functionality
 // -> This route handler responds to HTTP POST  requests to the /add task URL by adding a new task
 app.post("/addtask", urlEncodedParser, (req, res) => {
@@ -39,7 +34,7 @@ app.post("/addtask", urlEncodedParser, (req, res) => {
     var newTask = req.body.newtask;
     const taskObject = {
         //new task object is created with a unique ID
-        ID: Date.now() + Math.random().toString(36).substr(2, 9),
+        ID: Date.now() + Math.random().toString(36).substring(2, 9),
         Task: newTask,//Name of the new task
         Completed: false//This completed flag set to "False" by default
 

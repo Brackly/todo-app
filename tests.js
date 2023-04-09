@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('./app');
+const app = require('express');
 const fs = require('fs');
 
 const fileName = "toDoList.json";
